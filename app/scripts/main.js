@@ -75,7 +75,7 @@ if($('body').hasClass('details')) {
 
 		map.setOptions({styles: stylin});
 
-		var companyLogo = new google.maps.MarkerImage('images/marker.png',
+		var companyLogo = new google.maps.MarkerImage('../images/marker.png',
 		  new google.maps.Size(35,53),
 		  new google.maps.Point(0,0),
 		  new google.maps.Point(20,50)
