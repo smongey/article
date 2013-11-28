@@ -193,8 +193,8 @@ $(document).ready(function(){
 
 		// Slider page code
 
-		var slideElement = $('#slider').load(function(){$(this).height()});
-		var sliderHeight = slideElement[0].clientHeight;		
+		var slideElement = $('#slider').load(function(){$(this).height();});
+		var sliderHeight = slideElement[0].clientHeight;
 
 		// This if/else is if its the full page slider or the product page slider
 		if ( $('body').hasClass('home') || $('body').hasClass('story') ) {
@@ -418,7 +418,6 @@ $(document).ready(function(){
 	} else if($('body').hasClass('single')) {
 		nextbutton.attr({stroke: '#fff'});
 		prevbutton.attr({stroke: '#fff'});
-
 	} else  {
 		// nada
 	}
