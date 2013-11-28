@@ -106,12 +106,12 @@ $(document).ready(function(){
 		var halfBrowserHeight = $(window).height() / 2;
 		var halfSliderHeight = $('#slider').height() / 2;
 		if($('body').hasClass('home') || $('body').hasClass('story')) {
-			$('a#next, a#prev').hide().css({ top: halfBrowserHeight }).fadeIn(1000);
+			$('a#next, a#prev').css({ top: halfBrowserHeight });
 			if(windowHeight > sliderHeight) {
-				$('a#next, a#prev').hide().css({ top: halfSliderHeight }).fadeIn(1000);
+				$('a#next, a#prev').css({ top: halfSliderHeight });
 			}
 		} else {
-			$('a#next, a#prev').hide().css({ 'margin-top': -(sliderHeight/2 + 20) }).fadeIn(1000);
+			$('a#next, a#prev').css({ 'margin-top': -(sliderHeight/2 + 20) });
 		}
 	};
 
