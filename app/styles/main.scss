@@ -1,0 +1,244 @@
+@import url("http://fnt.webink.com/wfs/webink.css/?project=4A776F31-4A75-444D-9D85-748D5F4EBF11&fonts=79FFD680-777D-F4B0-8FFE-043ABAB4969A:f=ArnhemPro-Normal,31B87CF9-F410-ED20-E812-2F143D523935:f=Hermes-Regular,2AA35A4E-ED48-3B8D-3C79-2764EFAD2C9E:f=ArnhemPro-NormalItalic");
+/*
+ArnhemPro-Normal
+Hermes-Regular
+ArnhemPro-NormalItalic
+*/
+@import "compass/css3";
+
+// Utilities
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+.browsehappy { margin: 0.2em 0; background: #ccc; color: #000; padding: 0.4em 0; }
+a { color: #111; text-decoration: none; }
+li { list-style-type: none; }
+h1, h2, h3, h4, h5, p, ul, li, div { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5 { font-weight: normal; -webkit-font-smoothing: antialiased; }
+$green: #00A85D;
+$lgreen: #E1F7ED;
+$grey: #333333;
+::-moz-selection { background-color: rgba($green, .2); color: #000; }
+::selection { background-color: rgba($green, .2); color: #000; }
+
+body { width: 100%; font:1.1em/1.6em "ArnhemPro-Normal", Times, serif; }
+
+// Nav
+header { padding: 40px; position: absolute; z-index: 9999; width: 100%; text-align: center; margin: 0 auto;  }
+h1#logo { width: 160px; height: 50px; margin: 0 auto; display: block; }
+#nav { margin-top: 20px; -webkit-transition: all ease .3s;
+	li { display: inline-block; padding: 5px; 
+		a.heading { color: $green; -webkit-transition: all ease .3s; }
+		a.active { text-decoration: underline; }
+		&:hover { text-decoration: underline; }
+	}
+	#slidecount li:last-child { padding:0; }
+	#cart { position: fixed; display: block; right:15px; top:15px; width: 80px; height: 80px; outline: none; }
+	span.arrow { display: block; margin: -5px 0 0 75px; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 5px solid white; }
+}
+#products, #connect { 
+	li { display: list-item; padding: 10px 30px 12px; background: #fff; 
+		a { color: #000; }
+		&:hover { 
+			background: rgba(255,255,255,.85);
+		}
+	}
+	position: absolute;
+	background: transparent;
+	margin-left: -45px;
+	display: none;
+	opacity: 0;
+	box-shadow: 0px 0px 5px 0px rgba($green, .4);
+ 	font:.9em/1.1em 'Hermes-Regular', Arial, sans-serif;
+	-webkit-transition: opacity ease .3s;
+}
+#nav li:hover > ul {
+	display: block;
+	opacity: 1; -webkit-transition: opacity ease .3s;
+}
+
+// Homepage
+// Slider
+
+#slides { width: 100%; }
+.swipe { overflow: hidden; visibility: hidden; position: relative; }
+.swipe-wrap { overflow: hidden; position: relative; }
+.swipe-wrap > div { float:left; width:100%; position: relative; }
+.swipe-wrap > div img { width:100%; max-width: 100%; height: auto; }
+#slidernav { top: 0px; position: absolute; width: 100%;
+	a#prev, a#next { position: absolute; color: #fff; display: block; width:40px; height:35px; }
+	a#prev { left: 50px; }
+	a#next { right: 50px; }
+	
+}
+a#more { position:absolute; display:block; text-align:center; padding:10px; left:50%; margin: -40px 0 0 -40px; background: white; letter-spacing: .05em; width: 80px; text-transform: uppercase; color: $green; font:.8em/1em 'Hermes-Regular', Arial, sans-serif; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+#slidecount { position: absolute; display:block; text-align:center; bottom:200px; width: 100%; z-index: 9999;
+	li { color: $green; display: inline-block; margin: 3px; text-indent: -9999px; width:9px; height:9px; border: 2px solid white; @include border-radius(4px); }
+	li.on { background: white; }
+}
+
+#storytitle { position: absolute; display: block; left: 50%; margin-left: -125px;
+	h1 { position: absolute; color: $green; text-align: center; letter-spacing: .05em; text-transform: uppercase; width:140px; font:1.4em/1.1em 'Hermes-Regular', Arial, sans-serif; left:50%; margin: -125px 0 0 -70px; }
+}
+
+#items { width: 90%; margin: 0 auto; padding: 75px 0; text-align: center; max-width: 1100px;
+	h2 { text-align: center; margin-bottom: 75px; color: $green; font:1.5em/1em 'Hermes-Regular', Arial, sans-serif; }
+	.row { word-spacing: -.25em; letter-spacing: -.25em; }
+	.product { position: relative; width: 25%; padding: 20px; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top; @include single-transition(all, ease, .2s);
+		.placement { position: relative; @include single-transition(all, ease, .2s); }
+		.overlay { display: block; opacity: 0; position: absolute; left:50%; top:50%; width:150px; height:150px; margin:-75px 0 0 -75px;  @include single-transition(all, ease, .2s); }
+		.overlay .eye { position: relative; top:0px; left:0px; width: 65px; height: 65px; display: block; z-index: 9999; text-indent: -9999px; background: transparent url('../images/eye.png') center center no-repeat; background-image: url('../images/eye.svg'), none; @include border-radius(30px, 30px); &:hover { background-color: white; }  &:before {  -webkit-transform: rotate(180deg); } }
+		.overlay .slash { position: absolute; top:0px; left:0px; width: 150px; height: 150px; display: block; z-index: 8888; text-indent: -9999px; background-image: url('../images/slash.png'); background-image: url('../images/slash.svg'), none; }
+		.overlay .cart { position: absolute; bottom:0px; right:0px; width: 65px; height: 65px; display: block; z-index: 9999; text-indent: -9999px; background: transparent url('../images/cart.png') center center no-repeat; background-image: url('../images/cart.svg'), none; @include border-radius(30px, 30px); &:hover { background-color: white; } }
+		.placement img { position:relative; max-width:100%; display: block; margin: 0 auto; z-index: 8888; @include single-transition(all, ease, .2s); }
+		li { color: $green; font:1.1em/1.4em "ArnhemPro-Normal", Times, serif; -webkit-font-smoothing: antialiased; }
+		li:first-child { margin-top: 15px; } 
+		li.price { color: #000; }
+		&:hover {
+			.placement img { opacity: .2; z-index: 0; }
+			.overlay { opacity: 1; z-index: 9999; }
+		}
+	}
+	ul li { text-align: center; }
+} 
+#items:after { clear: both; }
+
+#ourshop { width: 90%; margin: 0 auto; padding: 75px 0; text-align: center; max-width: 1100px;
+	h2 { text-align: center; margin-bottom: 75px; color: $green; font:1.5em/1em 'Hermes-Regular', Arial, sans-serif; }
+	h3 { padding-right: 15%; margin-bottom: 50px; font:1.3em/1.3em "ArnhemPro-Normal", Times, serif; }
+	.row { word-spacing: -.5em; letter-spacing: -.5em; }
+	ul { width: 40%; float: left; font-size: .9em; line-height: 1.4em; }
+	div > div { width: 50%; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top;
+	  img { max-width:100%; }
+	}
+	ul > li {
+		a { text-decoration: underline; }
+		&:first-child {  text-transform: uppercase; text-decoration: underline; margin-bottom: 10px; }
+	}
+	ul:last-child { padding-left: 10px; }
+}
+#ourshop > * { text-align: left; }
+
+// Story page
+#story { width: 90%; margin: 0 auto; padding: 40px 0; max-width: 1100px;
+	.row { word-spacing: -.3em; letter-spacing: -.3em; }
+	div:first-child {
+		width: 32.5%; padding: 20px; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top;
+		h2 { font:1.2em/1em 'Hermes-Regular', Arial, sans-serif; }
+	}
+	div {
+		width: 32.5%; padding: 20px; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top;
+		p { margin-bottom: 1.5em; }
+	}
+
+}
+
+// Products page
+.products, .single {
+	#items { padding-top: 200px; 
+		h2 { margin-bottom: 50px; color: $grey; }
+		.row { word-spacing: -.32em; letter-spacing: -.32em; }
+		.product { position: relative; width: 32.5%; padding: 20px; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top; @include single-transition(all, ease, .2s); }
+
+	}
+}
+
+.single { 
+	#items.row { word-spacing: -.4em; letter-spacing: -.4em; }
+	#slides { width: 55%; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top; }
+	.info { width:45%; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top; padding:0 0 0 60px;
+		h2 { margin-bottom: 20px !important; }
+		h3 { font-family: 'ArnhemPro-Normal', Times, serif; margin-bottom: 30px; color: $green; }
+		p { padding-bottom: 20px; span { color: $green; } }
+		p.price { color: $green; font-family: 'Hermes-Regular', Arial, sans-serif; margin-bottom: 15px; }
+		a.buyme { width:150px; border-bottom: 2px solid darken($green, 10%); margin: 0 auto; background-color: $green; display: block; padding: 10px; color: white; font-family: 'Hermes-Regular', Arial, sans-serif; margin-bottom: 20px; }
+		a.buyme:hover { background-color:darken($green, 3%)  }
+		a.buyme:active { @include transform2d(translate(0px,2px)); border-bottom: none; margin-bottom: 22px; }
+		a { display: block; color: $green; font-family: 'Hermes-Regular', Arial, sans-serif; }
+	}
+	#slidernav, #slidecount { position: relative; }
+	#slidernav a#prev { left: 20px; }
+	#slidernav a#next { right: 20px; }
+}
+
+// Map
+#map { width:100%; height:100%; padding: 0; display: block; padding-top: 180px;
+	.row { width: 90%; height:100%; margin: 0 auto; padding: 75px 0; text-align: center; max-width: 1100px; } 
+	#map-canvas { margin: 0px; padding: 0px; height: 600px;
+		
+		#content { padding: 20px;
+			h1 { margin-bottom: 15px; font-family: 'Hermes-Regular', Arial, sans-serif; font-size: 21px; }
+		}
+		.map-left { float: left; width: 45%; padding-bottom: 20px; font:1.1em/1.6em "ArnhemPro-Normal", Times, serif; span { text-decoration: underline; text-transform: uppercase; font:.9em/1.6em "ArnhemPro-Normal", Times, serif; } }
+		.map-right { float: right; width: 45%;  font:1.1em/1.6em "ArnhemPro-Normal", Times, serif; span { text-decoration: underline; text-transform: uppercase; font:.9em/1.6em "ArnhemPro-Normal", Times, serif; } }
+
+	}
+}
+
+.details #ourshop { display: none; padding-top: 180px; }
+
+
+// Footer
+footer { width:100%; padding: 40px 0;  background: $lgreen; display: block;
+	.row { width: 90%; margin: 0 auto; word-spacing: -.5em; max-width: 1100px;
+		p { font:.8em/1em 'Hermes-Regular', Arial, sans-serif; margin:-55px 0 10px 90px; }
+		span { font:.7em/1em 'ArnhemPro-Normal', Times, serif; margin-left: 90px; }
+	}
+	div > div { width: 50%; display: inline-block; word-spacing: normal; vertical-align: top; }
+	#footer-nav { word-spacing: -.3em; letter-spacing: -.3em;
+		ul { width:33%; display: inline-block; word-spacing: normal; letter-spacing: normal; vertical-align: top; }
+		a { color: $grey; -webkit-transition: all ease .2s; }
+		a:hover { color: $green; }
+	}
+
+}
+
+@media all and (max-width: 768px) { 
+	#items { padding: 40px 0;
+		div.product { 
+			width: 50%;
+		}
+	}
+	.products #items div.product { width: 50%; }
+	#ourshop { padding: 40px 0;
+		ul { width: auto; margin-bottom: 20px; }
+		h3 { padding: 0 3em 0 0; font-size: 1em; }
+		ul:last-child { padding: 0; }
+	}
+	#slidernav, #storytitle, #slidecount, footer span a, #footer-nav { display: none; }
+	#story {
+		div, div:first-child { width: 100%; 
+			p:last-child { margin-bottom: 0; } 
+		}
+	}
+	footer div > div { width: 100%; }
+	.single #items #slides { width:100%; }
+	.single #items .info { width: 100%; padding: 30px 70px; }
+	.single #slidernav, .single #slidecount { display: block; } 	
+}
+
+@media all and (max-width: 480px) {
+	#slides { padding-top: 200px; }
+	#items {  padding: 40px 0;
+		h2 { margin-bottom: 30px;  }
+		div.product { width: 100%; } 
+	}
+	.products #items div.product { width: 100%; }
+	#ourshop { padding: 0 0 40px;
+		h2 { margin-bottom: 30px; }
+		.row div {
+			width: 100%;
+			&:first-child { padding: 20px; }
+			h3 { padding: 0; font-size: 1em; }
+		}
+	}
+	footer div > div { width: 100%; }
+	a#more, #footer-nav, #nav li.social { display: none; }
+	.single #items .info { width: 100%; padding: 10px 10px; }
+	.single #slides { padding-top: 0px; }
+	.single #slidernav a#prev { left: 5px; }
+	.single #slidernav a#next { right: 5px; }
+	.single #items { padding-top: 180px; }
+	.details #ourshop { display: block; }
+	#map { display: none; }
+}
+
+
