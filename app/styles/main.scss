@@ -63,8 +63,8 @@ h1#logo { width: 160px; height: 50px; margin: 0 auto; display: block; }
 	a#next { right: 50px; }
 	
 }
-a#more { position:absolute; display:block; text-align:center; padding:10px; left:50%; margin: -40px 0 0 -40px; background: white; letter-spacing: .05em; width: 80px; text-transform: uppercase; color: $green; font:.8em/1em 'Hermes-Regular', Arial, sans-serif; border-top-left-radius: 8px; border-top-right-radius: 8px; }
-#slidecount { position: absolute; display:block; text-align:center; bottom:200px; width: 100%; z-index: 9999;
+a#more { position:absolute; display:block; text-align:center; padding:10px; left:50%; margin: -40px 0 0 -40px; background: white; letter-spacing: .05em; width: 80px; text-transform: uppercase; color: $green; font:.8em/1em 'Hermes-Regular', Arial, sans-serif; border-top-left-radius: 8px; border-top-right-radius: 8px; z-index: 9999; }
+#slidecount { position: absolute; display:block; text-align:center; bottom:200px; width: 100%; z-index: 8888;
 	li { color: $green; display: inline-block; margin: 3px; text-indent: -9999px; width:9px; height:9px; border: 2px solid white; @include border-radius(4px); }
 	li.on { background: white; }
 }
