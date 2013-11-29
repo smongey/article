@@ -302,7 +302,7 @@ $(document).ready(function(){
 
 		$(window).scroll(function(){
 			moreButton();
-			if ($(window).scrollTop() >= (sliderHeight - windowHeight) ) {
+			if ($(window).scrollTop() >= ($('#slider').height() - $(window).height()) ) {
 				$('a#more').css({ bottom: 'auto',  position: 'absolute'});
 			}
 		});
